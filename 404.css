@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page_404 {
+    padding: 80px 0;
+    background: #f8f8f8;
+    font-family: 'Arvo', serif;
+}
+
+.four_zero_four_bg {
+    background-image: url('assets/404.gif');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    
+}
+
+.four_zero_four_bg h1 {
+    font-size: 150px;
+    color: #39ac31;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}
+
+.contant_box_404 h3 {
+    font-size: 40px;
+    text-align: center;
+  background-color: transparent;
+    box-shadow: 38px 38px 63px #b1adad, -38px -38px 63px #ffffff;
+}
+
+.contant_box_404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.contant_box_404 p {
+    text-align: center;
+    font-weight: bolder;
+}
+.link_404 {
+    color: #fff!important;
+    padding: 15px 30px;
+    background: #5e76e0;
+    margin: 20px 0;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 38px;
+    box-shadow: 38px 38px 63px #828282, -38px -38px 63px #ffffff;
+}
+.link_404:hover {
+    background: #357e2e;
+}
