@@ -403,32 +403,56 @@ button:hover .svg-wrapper {
 button:hover svg {
   transform: rotate(45deg);
 }
+/* Footer Section Styles */
 .footer-section {
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
+  background-color: #f4f4f4;
+  padding: 40px 0;
+}
+/* Footer Styling */
+.footer-section {
+  background-color: #f4f4f4;
+  padding: 20px 0;
 }
 
-.footer-section .container {
-    text-align: center;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-section p {
-    margin: 0;
-    font-size: 1.2em;
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.social-icons {
-    margin-top: 15px;
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.subscribe form {
+  display: flex;
+}
+
+.subscribe form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.subscribe form input[type="email"]:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
 .social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-    color: #fff; 
-    font-size: 24px; 
+  color: #4469e4;
+  text-decoration: none;
+  margin-right: 10px;
 }
+
 .social-icons a:hover {
-    color: #6c63ff;
+  color: #007bff;
 }
 
