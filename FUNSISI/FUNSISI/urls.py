@@ -22,3 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('funsisi.urls')),
 ]
+Handler404 = 'funsisi.views.handler404'

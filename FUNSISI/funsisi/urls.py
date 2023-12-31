@@ -13,5 +13,3 @@ urlpatterns = [
     path('book_station/<int:station_id>/', views.book_station, name='book_station'),
     path('book_virtual_tour/<int:virtual_tour_id>/', views.book_virtual_tour, name='book_virtual_tour'),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
