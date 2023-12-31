@@ -8,7 +8,7 @@ from .models import Station, VirtualTour, Booking
 
 
 def home(request):
-    return render(request, 'funsisi/index.html')
+    return render(request, 'index.html')
 
 def login(request):
     return render(request, 'login.html')
