@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Station, VirtualTour, Booking
+from .forms import RegistrationForm
+from django.shortcuts import redirect
 # Create your views here.
 
 
@@ -12,16 +14,20 @@ def home(request):
 
 def login(request):
     return render(request, 'login.html')
-
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'login.html')
+            # Optionally log in the user immediately after registration
+            # auth.login(request, user)
+            return redirect('success_page')  # Redirect to the login page after successful registration
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
+    
     return render(request, 'register.html', {'form': form})
+def success(request):
+    return render(request, 'success.html')
 
 def about(request):
     return render(request, 'about.html')

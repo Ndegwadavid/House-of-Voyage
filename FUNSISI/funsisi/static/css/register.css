@@ -1,0 +1,129 @@
+/* funsisi/static/css/register.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #756262;
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 30px;
+    width: 300px;
+    border-radius: 38px;
+}
+
+h2 {
+    color: #000000;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input {
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #0e0d0d;
+}
+
+input:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+.requirements {
+    display: none;
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.tick {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #4caf50;
+    display: none;
+}
+
+button {
+    position: relative;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    border-radius: 99px;
+
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+button::after {
+    background-color: #fff;
+}
+
+button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .login-box {
+        width: 80%;
+    }
+}

@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5;url={% url 'login' %}">
+  <title>Account Created</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/success.css' %}">
+</head>
+<body>
+  <h2>Account Created Successfully</h2>
+  <p>Your account has been created successfully. You will be redirected to the login page shortly.</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+        <script src="" async defer></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+        <form method="post" action="{% url 'success' %}">
+          {% csrf_token %}
+          <div class="input-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+          </div>
+          <div class="input-group">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+            <div class="requirements">
+              <!-- Show password requirements here -->
+              <p>Password must contain at least 8 characters, including uppercase, lowercase, and a number.</p>
+            </div>
+            <div class="tick">&#10003;</div>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      {% endblock %}
+    </body>
+</html>
