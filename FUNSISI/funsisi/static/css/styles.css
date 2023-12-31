@@ -157,6 +157,9 @@ box-shadow:  21px 21px 42px #82848b,
 box-shadow:  38px 38px 63px #828282,
              -38px -38px 63px #ffffff;
 }
+.landing-page .content .image img:hover{
+  transform: translateY(-10px);
+}
 
 .tours-section {
     background-color: #797373;
