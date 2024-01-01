@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Station, VirtualTour, Booking
+from .models import Station, StationImage, VirtualTour, Booking
 from .forms import RegistrationForm
 from django.shortcuts import redirect
 from django.contrib import auth
@@ -58,13 +58,18 @@ def login(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+def my_account(request):
+    return render(request, 'my_account.html')
+
+def my_bookings(request):
+    return render(request, 'my_bookings.html')
+
 def stations(request):
     stations = Station.objects.all()
     return render(request, 'stations.html', {'stations': stations})
 
-def book_station(request, station_id):
-    station = Station.objects.get(id=station_id)
-    return render(request, 'book_station.html', {'station': station})
+def book_station(request):
+    return render(request, 'book_station.html', {'station': StationImage})
 
 def book_virtual_tour(request, virtual_tour_id):
     virtual_tour = VirtualTour.objects.get(id=virtual_tour_id)

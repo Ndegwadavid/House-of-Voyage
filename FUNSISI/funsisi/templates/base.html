@@ -1,4 +1,4 @@
-<!-- funsisi/templates/funsisi/base.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}FunSisi{% endblock %}</title>
     <!-- Add your CSS styles or links to external stylesheets here -->
-    <link rel="stylesheet" href="{% static 'funsisi/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
 </head>
 <body>
 
@@ -17,9 +17,9 @@
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'stations' %}">Stations</a></li>
-        <!-- Add more navigation links as needed -->
         {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <l1><a href="{% url 'my_account' %}">My account</a></l1>
         {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'register' %}">Register</a></li>
