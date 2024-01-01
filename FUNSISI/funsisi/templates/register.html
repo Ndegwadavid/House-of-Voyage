@@ -5,7 +5,53 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <div class="form">
+    <form action="" method="post">
+      {% csrf_token %}
+      <label for="fname">First name</label>
+      <input type="text" placeholder="Enter your frist name" name="fname"><br>
+
+      <label for="fname">Last name</label>
+      <input type="text" placeholder="Enter your last name name" name="lname"><br>
+
+      <label for="fname">Username</label>
+      <input type="text" placeholder="Enter your Username" name="uname"><br>
+
+      <label for="fname">Email</label>
+      <input type="email" placeholder="Enter your email" name="email"><br>
+
+      <label for="fname">Password</label>
+      <input type="password" placeholder="Create your password" name="pass"><br>
+
+      <button type="submit">Submit</button>
+      <p>Already have an account? <a href="{% url 'login'%}">Login</a></p>
+    </form>
+  </div>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <script src="" async defer></script>
+  </body>
+</html>
+<!--
+  <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +75,7 @@
             {{ form.password1.label_tag }}
             {{ form.password1 }}
             <div class="requirements">
-              <!-- Show password requirements here -->
+              Show password requirements here 
               <p>Password must contain at least 8 characters, including uppercase, lowercase, and a number.</p>
             </div>
             <div class="tick">&#10003;</div>

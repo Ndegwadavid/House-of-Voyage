@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Station, VirtualTour, Booking
 from .forms import RegistrationForm
 from django.shortcuts import redirect
+from django.contrib import auth
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 
@@ -14,27 +16,47 @@ def home(request):
 
 def login(request):
     return render(request, 'login.html')
+
 def register(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # Optionally log in the user immediately after registration
-            # auth.login(request, user)
-            return redirect('success_page')  # Redirect to the login page after successful registration
-    else:
-        form = RegistrationForm()
-    
-    return render(request, 'register.html', {'form': form})
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        user_name = request.POST['uname']
+        email = request.POST['email']
+        password = request.POST['pass']
+
+        new_user = User.objects.create_user(user_name, email, password)
+        new_user.first_name = fname
+        new_user.last_name = lname
+        new_user.save()
+        return redirect('success')
+
+    return render(request, 'register.html')
+
 def success(request):
     return render(request, 'success.html')
 
 def about(request):
     return render(request, 'about.html')
 
-@login_required
-def profile(request):
-    return render(request, 'profile.html')
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('uname')
+        password = request.POST.get('pass')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('dashboard')
+        else:
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
+
+    return render(request, 'login.html')
+@login_required(login_url='login')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def stations(request):
     stations = Station.objects.all()
