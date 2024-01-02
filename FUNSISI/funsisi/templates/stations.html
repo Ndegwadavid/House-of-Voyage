@@ -1,13 +1,13 @@
 <!-- funsisi/templates/book_station.html -->
 
-{% extends 'base.html' %}
+
 
 {% block content %}
   <h2>Book Station: {{ station.name }}</h2>
-    <p>Location: {{ station.location }}</p>
-  <p>Description: {{ station.description }}</p>
   
-  <form method="post" action="{% url 'station' station.id %}">
+  <p>Location: {{ station.location }}</p>
+  <p>Description: {{ station.description }}</p>
+    <form method="post" action="{% url 'stations' %}">
     {% csrf_token %}
     <label for="date">Select Date:</label>
     <input type="date" name="date" required>

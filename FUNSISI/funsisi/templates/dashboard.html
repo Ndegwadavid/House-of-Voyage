@@ -4,22 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Dashboard</title>
+    <title>funsisi | Dashboard</title>
     <!-- Add your CSS styles here if needed -->
 </head>
 <body>
 
-  <h2>Welcome to Your Dashboard, {{ user.username }}</h2>
-  
   <nav>
     <ul>
       <a href="{% url 'my_account' %}">My Account</a>
       <a href="{% url 'my_bookings' %}">My Bookings</a>
-      <a href="{% url 'book_station' %}">Book station</a>
+      <a href="{% url 'stations' %}">Book station</a>
+      <a href="{% url 'stations' %}">Stations</a>
     </ul>
   </nav>
 
-  <!-- Add more content as needed -->
+  {% block content %}
+  <h2>Welcome to Your Dashboard, {{ user.username }}</h2>
+  <form method="GET" action="{% url 'dashboard' %}">
+    <label for="search">Search Stations:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+  </form>
+  
+  <h3>Available Stations:</h3>
+  <ul>
+    {% for station in search_results %}
+    <p>
+      Station: <a href="{% url 'stations' station.id %}">{{ station.name }}</a><br>
+      Location: {{ station.location }}<br>
+      Description: {{ station.description }}
+    </p>
+  {% endfor %}
+{% endblock %}
 
   <button><a href="{%url 'login'%}">Log out</a></button>
 

@@ -8,6 +8,9 @@ from .forms import RegistrationForm
 from django.shortcuts import redirect
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+
+
 # Create your views here.
 
 
@@ -56,7 +59,8 @@ def login(request):
     return render(request, 'login.html')
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    stations = Station.objects.all()
+    return render(request, 'dashboard.html', {'stations': stations} )
 
 def my_account(request):
     return render(request, 'my_account.html')
@@ -80,4 +84,3 @@ def book_virtual_tour(request, virtual_tour_id):
         return render(request, 'booking_success.html')
     
     return render(request, 'funsisi/book_virtual_tour.html', {'virtual_tour': virtual_tour})
-
